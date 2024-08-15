@@ -33,14 +33,24 @@ void loop(){
             std::cout << "The result is " << subtraction(a, b) << std::endl;
         else if (operation == '*')
             std::cout << "The result is " << multiplication(a, b) << std::endl;
-        else if (operation == '/')
-            std::cout << "The result is " << division(a, b) << std::endl;
+        else if (operation == '/'){
+            if (b == 0)
+                std::cout << "Error: Division by zero." << std::endl;
+            else
+                std::cout << "The result is " << division(a, b) << std::endl;
+        }
         else if (operation == '^')
             std::cout << "The result is " << power(a, b) << std::endl;
-        else if (operation == 'r')
-            std::cout << "The result is " << square_root(a) << std::endl;
+        else if (operation == 'r'){
+            if (a < 0)
+                std::cout << "Error: Cannot perform the square root of a negative number." << std::endl;
+            else
+                std::cout << "The result is " << square_root(a);
+        }
         else if (operation == 'q')
             break;
+        else
+            std::cout << "Invalid operation. Please try again." << std::endl;
     }
 }
 
@@ -65,5 +75,5 @@ double power(double a, double b){
 }
 
 double square_root(double a){
-    return std::pow(a, 0.5);
+    return std::sqrt(a);
 }
